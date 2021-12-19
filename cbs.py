@@ -227,26 +227,15 @@ class CBSSolver(object):
     def h2(self, paths, num_agents):
         k = 0
         collision = detect_collisions(paths)
-        # print("collision: ", collision)
-        conflicted_agents = []
-        for i in range(len(collision)):
-            # print(collision[i]['a1'])
-            if collision[i]['a1'] not in conflicted_agents:
-                conflicted_agents.append(collision[i]['a1'])
-        k = len(conflicted_agents)
-
-        # for current_agent in range(num_agents-1):
-        #     for other_agent in range(current_agent+1, num_agents-1):
-        #         collision = detect_collision(paths[current_agent], paths[other_agent])
-        #         if collision:
-        #             k += 1
-        #             continue
-        # print(k)
+        conflicted_agents = [0 for i in range(num_agents)]
+        for conflict in collision:
+            conflicted_agents[conflict['a1']] = 1
+            conflicted_agents[conflict['a2']] = 1
+        k = sum(conflicted_agents)
         return k
 
     def h1(self, collisions):
         return len(collisions)
-
 
     def h3(self, next, collision, paths, num_agents):
         if next % 2 == 0:
@@ -254,19 +243,13 @@ class CBSSolver(object):
         else:
             return self.h2(paths, num_agents)
         # pass
+    
     def find_solution(self, disjoint=True):
         """ Finds paths for all agents from their start locations to their goal locations
 
         disjoint    - use disjoint splitting or not
         """
-
         self.start_time = timer.time()
-
-        # Generate the root node
-        # constraints   - list of constraints
-        # paths         - list of paths, one for each agent
-        #               [[(x11, y11), (x12, y12), ...], [(x21, y21), (x22, y22), ...], ...]
-        # collisions     - list of collisions in paths
         root = {'cost': 0,
                 'constraints': [],
                 'paths': [],
@@ -284,18 +267,8 @@ class CBSSolver(object):
         self.push_node(root)
         self.cost_min = root['cost']    # cost_min
 
-        root['heuristic_constraints'] = len(root['collisions']) # h_c function 
-
+        root['heuristic_constraints'] = len(root['collisions']) #h_c
         self.push_node_to_focal(root)
-
-        ##############################
-        # Task 3.3: High-Level Search
-        #           Repeat the following as long as the open list is not empty:
-        #             1. Get the next node from the open list (you can use self.pop_node()
-        #             2. If this node has no collision, return solution
-        #             3. Otherwise, choose the first collision and convert to a list of constraints (using your
-        #                standard_splitting function). Add a new child node to your open list for each constraint
-        #           Ensure to create a copy of any objects that your child nodes might inherit
 
         ## Apply Focal Search
         while self.focal_list:
@@ -311,7 +284,6 @@ class CBSSolver(object):
                 self.print_results(curr)
                 return curr['paths']
 
-            
             collision = curr['collisions'][0]
             if disjoint:
                 constraints = disjoint_splitting(collision)
@@ -330,10 +302,8 @@ class CBSSolver(object):
                     agents = paths_violate_constraint(constraint, child_path)
                 else:
                     agents = [constraint['agent']]
-
-                # print("List of conflict agent", agents)
+                
                 for i in agents:
-                    # print("Calling A* for", i)
                     self.heuristics_perpath[i] = compute_he_heuristic(child['paths'], i)
                     path = a_star(self.my_map, self.starts[i], self.goals[i], self.heuristics[i], self.heuristics_perpath[i],
                             i, child['constraints'])
@@ -345,8 +315,8 @@ class CBSSolver(object):
                     child['collisions'] = detect_collisions(child['paths'])
                     child['cost'] = get_sum_of_cost(child['paths'])
                     # child['heuristic_constraints'] = self.h1(child['collisions'] )
-                    # child['heuristic_constraints'] = self.h2(path, self.num_of_agents)
-                    child['heuristic_constraints'] = self.h3(self.next, child['collisions'], path, self.num_of_agents)
+                    child['heuristic_constraints'] = self.h2(child['paths'], self.num_of_agents)
+                    # child['heuristic_constraints'] = self.h3(self.next, child['collisions'], child['paths'], self.num_of_agents)
                     self.next = (self.next + 1) % 2
 
                     self.push_node(child)

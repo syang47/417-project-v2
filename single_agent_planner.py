@@ -165,6 +165,7 @@ def retrieve_he_value_from_dict(he_dict, timestamp, loc):
             return 1
     return 0
 
+
 def a_star(my_map, start_loc, goal_loc, h_values, he_values, agent, constraints):
     """ my_map      - binary obstacle map
         start_loc   - start position
@@ -184,7 +185,7 @@ def a_star(my_map, start_loc, goal_loc, h_values, he_values, agent, constraints)
     h_value = h_values[start_loc]
     sw = 10
     he_value = retrieve_he_value_from_dict(he_values, 0, start_loc) * sw + h_value + 0
-    weight = 9999
+    weight = 1
     num_gen = 0
 
     root = {'loc': start_loc, 'g_val': 0, 'h_val': h_value, 'parent': None, 'he_val': he_value, 'timestep':0}
@@ -200,10 +201,7 @@ def a_star(my_map, start_loc, goal_loc, h_values, he_values, agent, constraints)
             if temp_node_structure[-1] == curr:
                 open_list.remove(temp_node_structure)
 
-        #############################
-        # Task 1.4: Adjust the goal test condition to handle goal constraints
         if curr['loc'] == goal_loc:
-            # exceed longest path then stop
             max_timestep = 0
             flag = 0
             if curr['timestep'] >= mapsize:
@@ -215,10 +213,9 @@ def a_star(my_map, start_loc, goal_loc, h_values, he_values, agent, constraints)
                     if(is_constrained(goal_loc, goal_loc, i, c_table)):
                         flag = 1
                 if flag == 0:
-                    return get_path(curr) 
+                    return get_path(curr)
             else:
-                return get_path(curr)         
-                # check min and update cost min
+                return get_path(curr)   
    
         for dir in range(5):
             child_loc = move(curr['loc'], dir)
