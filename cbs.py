@@ -226,12 +226,22 @@ class CBSSolver(object):
 
     def h2(self, paths, num_agents):
         k = 0
-        for current_agent in range(num_agents-1):
-            for other_agent in range(current_agent+1, num_agents-1):
-                collision = detect_collision(paths[current_agent], paths[other_agent])
-                if collision:
-                    k += 1
-                    continue
+        collision = detect_collisions(paths)
+        # print("collision: ", collision)
+        conflicted_agents = []
+        for i in range(len(collision)):
+            # print(collision[i]['a1'])
+            if collision[i]['a1'] not in conflicted_agents:
+                conflicted_agents.append(collision[i]['a1'])
+        k = len(conflicted_agents)
+
+        # for current_agent in range(num_agents-1):
+        #     for other_agent in range(current_agent+1, num_agents-1):
+        #         collision = detect_collision(paths[current_agent], paths[other_agent])
+        #         if collision:
+        #             k += 1
+        #             continue
+        # print(k)
         return k
 
     def h1(self, collisions):
@@ -334,9 +344,9 @@ class CBSSolver(object):
                 if path is not None:  
                     child['collisions'] = detect_collisions(child['paths'])
                     child['cost'] = get_sum_of_cost(child['paths'])
-                    child['heuristic_constraints'] = self.h1(child['collisions'] )
+                    # child['heuristic_constraints'] = self.h1(child['collisions'] )
                     # child['heuristic_constraints'] = self.h2(path, self.num_of_agents)
-                    # child['heuristic_constraints'] = self.h3(self.next, child['collisions'], path, self.num_of_agents)
+                    child['heuristic_constraints'] = self.h3(self.next, child['collisions'], path, self.num_of_agents)
                     self.next = (self.next + 1) % 2
 
                     self.push_node(child)
