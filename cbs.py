@@ -1,4 +1,5 @@
 from copy import deepcopy
+import math
 import time as timer
 import heapq
 import random
@@ -182,9 +183,12 @@ class CBSSolver(object):
 
         self.num_of_generated = 0
         self.num_of_expanded = 0
+        self.num_of_focal_generated = 0
+        self.num_of_focal_expanded = 0
         self.CPU_time = 0
 
-        self.weight = 10
+        self.next = 0
+        self.weight = 1
         self.focal_list = []
         self.open_list = []
         self.cost_min = float('inf')
@@ -196,7 +200,7 @@ class CBSSolver(object):
 
         self.heuristics_perpath = []
         for goal in self.goals:
-            self.heuristics_perpath.append(compute_he_heuristic(my_map, None, 0, self.heuristics))
+            self.heuristics_perpath.append(compute_he_heuristic(None, 0))
 
     def push_node(self, node):
         heapq.heappush(self.open_list, (node['cost'], len(node['collisions']), self.num_of_generated, node))
@@ -204,22 +208,42 @@ class CBSSolver(object):
         self.num_of_generated += 1
     
     def push_node_to_focal(self, node):
-        heapq.heappush(self.focal_list, (node['heuristic_constraint'],node['cost'], len(node['collisions']), self.num_of_generated, node))
+        heapq.heappush(self.focal_list, (node['heuristic_constraint'], node['cost'], len(node['collisions']), self.num_of_focal_generated, node))
         # print("Generate node {}".format(self.num_of_generated))
-        self.num_of_generated += 1
+        self.num_of_focal_generated += 1
 
     def pop_node(self):
-        _, _, id, node = heapq.heappop(self.open_list)
+        _, _, _, node = heapq.heappop(self.open_list)
         # print("Expand node {}".format(id))
         self.num_of_expanded += 1
         return node
 
-    def pop_node_from_focal(self):        
-        _, _, _, id, node = heapq.heappop(self.focal_list)
+    def pop_node_from_focal(self):
+        _, _, _, _, node = heapq.heappop(self.focal_list)
         # print("Expand node {}".format(id))
-        self.num_of_expanded += 1
+        self.num_of_focal_expanded += 1
         return node
 
+    def h2(self, paths, num_agents):
+        k = 0
+        for current_agent in range(num_agents-1):
+            for other_agent in range(current_agent+1, num_agents-1):
+                collision = detect_collision(paths[current_agent], paths[other_agent])
+                if collision:
+                    k += 1
+                    continue
+        return k
+
+    def h1(self, collisions):
+        return len(collisions)
+
+
+    def h3(self, next, collision, paths, num_agents):
+        if next % 2 == 0:
+            return self.h1(collision)
+        else:
+            return self.h2(paths, num_agents)
+        # pass
     def find_solution(self, disjoint=True):
         """ Finds paths for all agents from their start locations to their goal locations
 
@@ -254,13 +278,6 @@ class CBSSolver(object):
 
         self.push_node_to_focal(root)
 
-        # Task 3.1: Testing
-        # print(root['collisions'])
-
-        # Task 3.2: Testing
-        # for collision in root['collisions']:
-            # print(standard_splitting(collision))
-
         ##############################
         # Task 3.3: High-Level Search
         #           Repeat the following as long as the open list is not empty:
@@ -271,30 +288,19 @@ class CBSSolver(object):
         #           Ensure to create a copy of any objects that your child nodes might inherit
 
         ## Apply Focal Search
-        while self.focal_list:  
-            # curr = self.pop_node() and remove curr from focal
+        while self.focal_list:
             curr = self.pop_node_from_focal()
 
             # remove curr from open
             for i in self.open_list:
                 if i[-1] == curr:
                     self.open_list.remove(i)
-            # check min and update cost_min
-            if(len(self.open_list) > 0):
-                new_min_node = self.pop_node()
-                new_min = new_min_node['cost']
-                self.push_node(new_min_node)
-                if new_min > self.cost_min:
-                    self.cost_min = new_min
-                    for i in self.open_list:
-                        if i[-1]['cost'] < self.cost_min * self.weight and i not in self.focal_list:
-                            self.push_node_to_focal(i[-1])
 
-            
             # if no collision return solution
             if len(curr['collisions']) == 0:
                 self.print_results(curr)
                 return curr['paths']
+
             
             collision = curr['collisions'][0]
             if disjoint:
@@ -315,21 +321,37 @@ class CBSSolver(object):
                 else:
                     agents = [constraint['agent']]
 
-            
+                # print("List of conflict agent", agents)
                 for i in agents:
-                    self.heuristics_perpath[i] = compute_he_heuristic(self.my_map, child['paths'], i, self.heuristics)
+                    # print("Calling A* for", i)
+                    self.heuristics_perpath[i] = compute_he_heuristic(child['paths'], i)
                     path = a_star(self.my_map, self.starts[i], self.goals[i], self.heuristics[i], self.heuristics_perpath[i],
                             i, child['constraints'])
                     child['paths'][i] = path
                     if not path:
                         break
+
                 if path is not None:  
                     child['collisions'] = detect_collisions(child['paths'])
                     child['cost'] = get_sum_of_cost(child['paths'])
-                    child['heuristic_constraints'] = len(child['collisions'])
+                    child['heuristic_constraints'] = self.h1(child['collisions'] )
+                    # child['heuristic_constraints'] = self.h2(path, self.num_of_agents)
+                    # child['heuristic_constraints'] = self.h3(self.next, child['collisions'], path, self.num_of_agents)
+                    self.next = (self.next + 1) % 2
+
                     self.push_node(child)
-                    if child['cost'] <= self.weight * self.cost_min:
+                    if child['cost'] <= self.weight *  self.cost_min:
                         self.push_node_to_focal(child)
+            
+            if(len(self.open_list) > 0):
+                new_min_node = self.pop_node()
+                new_min = new_min_node['cost']
+                self.push_node(new_min_node)
+                if new_min > self.cost_min:
+                    self.cost_min = new_min
+                    for node in self.open_list:
+                        if node[-1]['cost'] <= self.cost_min * self.weight:
+                            self.push_node_to_focal(node[-1])
                         
         raise BaseException('No solutions')
 
