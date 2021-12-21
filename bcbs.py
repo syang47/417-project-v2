@@ -20,8 +20,9 @@ def detect_collision(path1, path2):
             return [[get_location(path1, i)], i]
 
         if i  > 0 and i < max_path-1:
-             if get_location(path1, i) == get_location(path2, i+1) and get_location(path2, i) == get_location(path1, i+1):
-                return [[get_location(path1, i), get_location(path1, i+1)], i+1]
+             if get_location(path1, i) == get_location(path2, i-1) and get_location(path2, i) == get_location(path1, i-1):
+                return [[get_location(path1, i-1), get_location(path1, i)], i]
+
 
     # no collision between two paths
     return None
@@ -167,7 +168,7 @@ def paths_violate_constraint(constraint, paths):
                 rst.append(i)
     return rst
 
-class CBSSolver(object):
+class BCBSSolver(object):
     """The high-level search of CBS."""
 
     def __init__(self, my_map, starts, goals):
@@ -188,7 +189,7 @@ class CBSSolver(object):
         self.CPU_time = 0
 
         self.next = 0
-        self.weight = 1
+        self.weight = 2
         self.focal_list = []
         self.open_list = []
         self.cost_min = float('inf')
@@ -204,23 +205,23 @@ class CBSSolver(object):
 
     def push_node(self, node):
         heapq.heappush(self.open_list, (node['cost'], len(node['collisions']), self.num_of_generated, node))
-        # print("Generate node {}".format(self.num_of_generated))
+        # print("Generate open node {}".format(self.num_of_generated))
         self.num_of_generated += 1
     
     def push_node_to_focal(self, node):
         heapq.heappush(self.focal_list, (node['heuristic_constraint'], node['cost'], len(node['collisions']), self.num_of_focal_generated, node))
-        # print("Generate node {}".format(self.num_of_generated))
+        # print("Generate focal node {}".format(self.num_of_focal_generated))
         self.num_of_focal_generated += 1
 
     def pop_node(self):
-        _, _, _, node = heapq.heappop(self.open_list)
-        # print("Expand node {}".format(id))
+        _, _, id, node = heapq.heappop(self.open_list)
+        # print("Expand open node {}".format(id))
         self.num_of_expanded += 1
         return node
 
     def pop_node_from_focal(self):
-        _, _, _, _, node = heapq.heappop(self.focal_list)
-        # print("Expand node {}".format(id))
+        _, _, _, id, node = heapq.heappop(self.focal_list)
+        # print("Expand focal node {}".format(id))
         self.num_of_focal_expanded += 1
         return node
 
@@ -315,8 +316,8 @@ class CBSSolver(object):
                     child['collisions'] = detect_collisions(child['paths'])
                     child['cost'] = get_sum_of_cost(child['paths'])
                     # child['heuristic_constraints'] = self.h1(child['collisions'] )
-                    child['heuristic_constraints'] = self.h2(child['paths'], self.num_of_agents)
-                    # child['heuristic_constraints'] = self.h3(self.next, child['collisions'], child['paths'], self.num_of_agents)
+                    # child['heuristic_constraints'] = self.h2(child['paths'], self.num_of_agents)
+                    child['heuristic_constraints'] = self.h3(self.next, child['collisions'], child['paths'], self.num_of_agents)
                     self.next = (self.next + 1) % 2
 
                     self.push_node(child)
@@ -339,7 +340,15 @@ class CBSSolver(object):
     def print_results(self, node):
         print("\n Found a solution! \n")
         CPU_time = timer.time() - self.start_time
+        total_exapnded_nodes = self.num_of_expanded+self.num_of_focal_expanded
+        total_generated_nodes = self.num_of_generated+self.num_of_focal_generated
         print("CPU time (s):    {:.2f}".format(CPU_time))
         print("Sum of costs:    {}".format(get_sum_of_cost(node['paths'])))
-        print("Expanded nodes:  {}".format(self.num_of_expanded))
-        print("Generated nodes: {}".format(self.num_of_generated))
+        print("Expanded open nodes:  {}".format(self.num_of_expanded))
+        print("Generated open nodes: {}".format(self.num_of_generated))
+        print("Expanded focal nodes:  {}".format(self.num_of_focal_expanded))
+        print("Generated focal nodes: {}".format(self.num_of_focal_generated))
+        print("Total expanded nodes: ", total_exapnded_nodes)
+        print("Total generated nodes: ", total_generated_nodes)
+        print("Number of Agents: {}".format(self.num_of_agents))
+        print()

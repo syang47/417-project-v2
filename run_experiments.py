@@ -2,13 +2,13 @@
 import argparse
 import glob
 from pathlib import Path
-from cbs import CBSSolver
+from bcbs import BCBSSolver
 from independent import IndependentSolver
 from prioritized import PrioritizedPlanningSolver
 from visualize import Animation
 from single_agent_planner import get_sum_of_cost
 
-SOLVER = "CBS"
+SOLVER = "BCBS"
 
 def print_mapf_instance(my_map, starts, goals):
     print('Start locations')
@@ -79,7 +79,7 @@ if __name__ == '__main__':
     parser.add_argument('--disjoint', action='store_true', default=False,
                         help='Use the disjoint splitting')
     parser.add_argument('--solver', type=str, default=SOLVER,
-                        help='The solver to use (one of: {CBS,Independent,Prioritized}), defaults to ' + str(SOLVER))
+                        help='The solver to use (one of: {BCBS,Independent,Prioritized}), defaults to ' + str(SOLVER))
 
     args = parser.parse_args()
 
@@ -92,10 +92,10 @@ if __name__ == '__main__':
         my_map, starts, goals = import_mapf_instance(file)
         print_mapf_instance(my_map, starts, goals)
 
-        if args.solver == "CBS":
-            print("***Run CBS***")
-            cbs = CBSSolver(my_map, starts, goals)
-            paths = cbs.find_solution(args.disjoint)
+        if args.solver == "BCBS":
+            print("***Run BCBS***")
+            bcbs = BCBSSolver(my_map, starts, goals)
+            paths = bcbs.find_solution(args.disjoint)
         elif args.solver == "Independent":
             print("***Run Independent***")
             solver = IndependentSolver(my_map, starts, goals)

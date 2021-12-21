@@ -1,0 +1,36 @@
+***Import an instance***
+instances\test_41_8a.txt
+Start locations
+. . . @ . . 5 .
+. 6 . @ @ . . .
+3 . . . @ 4 . .
+. @ 2 @ . . . .
+7 . . . . @ . @
+@ . 1 . . @ . .
+. 0 . . . . . @
+. @ . . . . . .
+
+Goal locations
+. . . @ . . 2 .
+. 7 . @ @ . . .
+. . . . @ . . .
+. @ . @ . . . .
+. . . . 3 @ 1 @
+@ . . . . @ 5 .
+. . . 0 . . 6 @
+. @ 4 . . . . .
+
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.18
+Sum of costs:    55
+Expanded open nodes:  53
+Generated open nodes: 159
+Expanded focal nodes:  54
+Generated focal nodes: 85
+Total expanded nodes:  107
+Total generated nodes:  244
+Number of Agents: 8
+***Test paths on a simulation***

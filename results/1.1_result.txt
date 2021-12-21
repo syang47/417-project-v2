@@ -1,0 +1,831 @@
+***Import an instance***
+instances\test_1.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.10
+Sum of costs:    41
+Expanded open nodes:  57
+Generated open nodes: 172
+Expanded focal nodes:  58
+Generated focal nodes: 118
+Total expanded nodes:  115
+Total generated nodes:  290
+Number of Agents: 5
+
+***Import an instance***
+instances\test_10.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.00
+Sum of costs:    19
+Expanded open nodes:  2
+Generated open nodes: 7
+Expanded focal nodes:  3
+Generated focal nodes: 3
+Total expanded nodes:  5
+Total generated nodes:  10
+Number of Agents: 6
+
+***Import an instance***
+instances\test_11.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.01
+Sum of costs:    35
+Expanded open nodes:  2
+Generated open nodes: 7
+Expanded focal nodes:  3
+Generated focal nodes: 4
+Total expanded nodes:  5
+Total generated nodes:  11
+Number of Agents: 7
+
+***Import an instance***
+instances\test_12.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.01
+Sum of costs:    36
+Expanded open nodes:  5
+Generated open nodes: 16
+Expanded focal nodes:  6
+Generated focal nodes: 8
+Total expanded nodes:  11
+Total generated nodes:  24
+Number of Agents: 7
+
+***Import an instance***
+instances\test_13.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.01
+Sum of costs:    36
+Expanded open nodes:  6
+Generated open nodes: 18
+Expanded focal nodes:  7
+Generated focal nodes: 13
+Total expanded nodes:  13
+Total generated nodes:  31
+Number of Agents: 7
+
+***Import an instance***
+instances\test_14.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.00
+Sum of costs:    24
+Expanded open nodes:  1
+Generated open nodes: 4
+Expanded focal nodes:  2
+Generated focal nodes: 2
+Total expanded nodes:  3
+Total generated nodes:  6
+Number of Agents: 7
+
+***Import an instance***
+instances\test_15.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.01
+Sum of costs:    50
+Expanded open nodes:  5
+Generated open nodes: 16
+Expanded focal nodes:  6
+Generated focal nodes: 15
+Total expanded nodes:  11
+Total generated nodes:  31
+Number of Agents: 7
+
+***Import an instance***
+instances\test_16.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.08
+Sum of costs:    52
+Expanded open nodes:  20
+Generated open nodes: 61
+Expanded focal nodes:  21
+Generated focal nodes: 39
+Total expanded nodes:  41
+Total generated nodes:  100
+Number of Agents: 7
+
+***Import an instance***
+instances\test_17.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.00
+Sum of costs:    39
+Expanded open nodes:  0
+Generated open nodes: 1
+Expanded focal nodes:  1
+Generated focal nodes: 1
+Total expanded nodes:  1
+Total generated nodes:  2
+Number of Agents: 7
+
+***Import an instance***
+instances\test_18.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.04
+Sum of costs:    33
+Expanded open nodes:  23
+Generated open nodes: 70
+Expanded focal nodes:  24
+Generated focal nodes: 51
+Total expanded nodes:  47
+Total generated nodes:  121
+Number of Agents: 7
+
+***Import an instance***
+instances\test_19.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.01
+Sum of costs:    47
+Expanded open nodes:  3
+Generated open nodes: 10
+Expanded focal nodes:  4
+Generated focal nodes: 6
+Total expanded nodes:  7
+Total generated nodes:  16
+Number of Agents: 7
+
+***Import an instance***
+instances\test_2.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.00
+Sum of costs:    18
+Expanded open nodes:  0
+Generated open nodes: 1
+Expanded focal nodes:  1
+Generated focal nodes: 1
+Total expanded nodes:  1
+Total generated nodes:  2
+Number of Agents: 5
+
+***Import an instance***
+instances\test_20.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.00
+Sum of costs:    28
+Expanded open nodes:  1
+Generated open nodes: 4
+Expanded focal nodes:  2
+Generated focal nodes: 2
+Total expanded nodes:  3
+Total generated nodes:  6
+Number of Agents: 7
+
+***Import an instance***
+instances\test_21.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.01
+Sum of costs:    46
+Expanded open nodes:  3
+Generated open nodes: 10
+Expanded focal nodes:  4
+Generated focal nodes: 6
+Total expanded nodes:  7
+Total generated nodes:  16
+Number of Agents: 8
+
+***Import an instance***
+instances\test_22.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.03
+Sum of costs:    51
+Expanded open nodes:  10
+Generated open nodes: 31
+Expanded focal nodes:  11
+Generated focal nodes: 21
+Total expanded nodes:  21
+Total generated nodes:  52
+Number of Agents: 8
+
+***Import an instance***
+instances\test_23.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.00
+Sum of costs:    32
+Expanded open nodes:  1
+Generated open nodes: 4
+Expanded focal nodes:  2
+Generated focal nodes: 3
+Total expanded nodes:  3
+Total generated nodes:  7
+Number of Agents: 8
+
+***Import an instance***
+instances\test_24.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.02
+Sum of costs:    47
+Expanded open nodes:  5
+Generated open nodes: 16
+Expanded focal nodes:  6
+Generated focal nodes: 16
+Total expanded nodes:  11
+Total generated nodes:  32
+Number of Agents: 8
+
+***Import an instance***
+instances\test_25.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.02
+Sum of costs:    40
+Expanded open nodes:  7
+Generated open nodes: 22
+Expanded focal nodes:  8
+Generated focal nodes: 12
+Total expanded nodes:  15
+Total generated nodes:  34
+Number of Agents: 8
+
+***Import an instance***
+instances\test_26.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.01
+Sum of costs:    42
+Expanded open nodes:  4
+Generated open nodes: 13
+Expanded focal nodes:  5
+Generated focal nodes: 9
+Total expanded nodes:  9
+Total generated nodes:  22
+Number of Agents: 8
+
+***Import an instance***
+instances\test_27.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.02
+Sum of costs:    41
+Expanded open nodes:  9
+Generated open nodes: 26
+Expanded focal nodes:  10
+Generated focal nodes: 22
+Total expanded nodes:  19
+Total generated nodes:  48
+Number of Agents: 8
+
+***Import an instance***
+instances\test_28.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.02
+Sum of costs:    41
+Expanded open nodes:  7
+Generated open nodes: 22
+Expanded focal nodes:  8
+Generated focal nodes: 13
+Total expanded nodes:  15
+Total generated nodes:  35
+Number of Agents: 8
+
+***Import an instance***
+instances\test_29.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.02
+Sum of costs:    48
+Expanded open nodes:  5
+Generated open nodes: 16
+Expanded focal nodes:  6
+Generated focal nodes: 14
+Total expanded nodes:  11
+Total generated nodes:  30
+Number of Agents: 8
+
+***Import an instance***
+instances\test_3.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.00
+Sum of costs:    28
+Expanded open nodes:  0
+Generated open nodes: 1
+Expanded focal nodes:  1
+Generated focal nodes: 1
+Total expanded nodes:  1
+Total generated nodes:  2
+Number of Agents: 5
+
+***Import an instance***
+instances\test_31.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.01
+Sum of costs:    39
+Expanded open nodes:  4
+Generated open nodes: 13
+Expanded focal nodes:  5
+Generated focal nodes: 8
+Total expanded nodes:  9
+Total generated nodes:  21
+Number of Agents: 5
+
+***Import an instance***
+instances\test_32.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.01
+Sum of costs:    30
+Expanded open nodes:  4
+Generated open nodes: 13
+Expanded focal nodes:  5
+Generated focal nodes: 8
+Total expanded nodes:  9
+Total generated nodes:  21
+Number of Agents: 5
+
+***Import an instance***
+instances\test_33.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.01
+Sum of costs:    28
+Expanded open nodes:  7
+Generated open nodes: 22
+Expanded focal nodes:  8
+Generated focal nodes: 18
+Total expanded nodes:  15
+Total generated nodes:  40
+Number of Agents: 5
+
+***Import an instance***
+instances\test_34.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.01
+Sum of costs:    33
+Expanded open nodes:  2
+Generated open nodes: 7
+Expanded focal nodes:  3
+Generated focal nodes: 5
+Total expanded nodes:  5
+Total generated nodes:  12
+Number of Agents: 5
+
+***Import an instance***
+instances\test_35.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.01
+Sum of costs:    30
+Expanded open nodes:  2
+Generated open nodes: 7
+Expanded focal nodes:  3
+Generated focal nodes: 3
+Total expanded nodes:  5
+Total generated nodes:  10
+Number of Agents: 5
+
+***Import an instance***
+instances\test_36.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.00
+Sum of costs:    23
+Expanded open nodes:  1
+Generated open nodes: 3
+Expanded focal nodes:  2
+Generated focal nodes: 2
+Total expanded nodes:  3
+Total generated nodes:  5
+Number of Agents: 5
+
+***Import an instance***
+instances\test_37.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.11
+Sum of costs:    38
+Expanded open nodes:  70
+Generated open nodes: 211
+Expanded focal nodes:  71
+Generated focal nodes: 184
+Total expanded nodes:  141
+Total generated nodes:  395
+Number of Agents: 5
+
+***Import an instance***
+instances\test_38.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.00
+Sum of costs:    28
+Expanded open nodes:  0
+Generated open nodes: 1
+Expanded focal nodes:  1
+Generated focal nodes: 1
+Total expanded nodes:  1
+Total generated nodes:  2
+Number of Agents: 5
+
+***Import an instance***
+instances\test_39.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.01
+Sum of costs:    35
+Expanded open nodes:  2
+Generated open nodes: 7
+Expanded focal nodes:  3
+Generated focal nodes: 3
+Total expanded nodes:  5
+Total generated nodes:  10
+Number of Agents: 5
+
+***Import an instance***
+instances\test_4.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.03
+Sum of costs:    32
+Expanded open nodes:  7
+Generated open nodes: 22
+Expanded focal nodes:  8
+Generated focal nodes: 20
+Total expanded nodes:  15
+Total generated nodes:  42
+Number of Agents: 5
+
+***Import an instance***
+instances\test_40.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.00
+Sum of costs:    24
+Expanded open nodes:  1
+Generated open nodes: 4
+Expanded focal nodes:  2
+Generated focal nodes: 2
+Total expanded nodes:  3
+Total generated nodes:  6
+Number of Agents: 5
+
+***Import an instance***
+instances\test_41_10a.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.67
+Sum of costs:    68
+Expanded open nodes:  248
+Generated open nodes: 744
+Expanded focal nodes:  249
+Generated focal nodes: 557
+Total expanded nodes:  497
+Total generated nodes:  1301
+Number of Agents: 10
+
+***Import an instance***
+instances\test_41_2a.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.00
+Sum of costs:    22
+Expanded open nodes:  2
+Generated open nodes: 6
+Expanded focal nodes:  3
+Generated focal nodes: 5
+Total expanded nodes:  5
+Total generated nodes:  11
+Number of Agents: 2
+
+***Import an instance***
+instances\test_41_4a.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.00
+Sum of costs:    24
+Expanded open nodes:  3
+Generated open nodes: 9
+Expanded focal nodes:  4
+Generated focal nodes: 4
+Total expanded nodes:  7
+Total generated nodes:  13
+Number of Agents: 4
+
+***Import an instance***
+instances\test_41_6a.txt
+***Run CBS***
+
+ Found a solution! 
+
+CPU time (s):    0.50      
+Sum of costs:    45        
+Expanded open nodes:  144  
+Generated open nodes: 432  
+Expanded focal nodes:  145 
+Generated focal nodes: 368 
+Total expanded nodes:  289 
+Total generated nodes:  800
+Number of Agents: 6        
+
+***Import an instance***   
+instances\test_41_8a.txt   
+***Run CBS***
+
+ Found a solution! 
+
+CPU time (s):    0.51       
+Sum of costs:    55
+Expanded open nodes:  242   
+Generated open nodes: 726   
+Expanded focal nodes:  243  
+Generated focal nodes: 544  
+Total expanded nodes:  485  
+Total generated nodes:  1270
+Number of Agents: 8
+
+***Import an instance***    
+instances\test_42.txt       
+***Run CBS***
+
+ Found a solution! 
+
+CPU time (s):    0.56       
+Sum of costs:    57
+Expanded open nodes:  272   
+Generated open nodes: 817   
+Expanded focal nodes:  273  
+Generated focal nodes: 782  
+Total expanded nodes:  545  
+Total generated nodes:  1599
+Number of Agents: 6
+
+***Import an instance***    
+instances\test_43.txt       
+***Run CBS***
+
+ Found a solution! 
+
+CPU time (s):    0.03  
+Sum of costs:    43    
+Expanded open nodes:  6
+Generated open nodes: 19
+Expanded focal nodes:  7
+Generated focal nodes: 11
+Total expanded nodes:  13
+Total generated nodes:  30
+Number of Agents: 6
+
+***Import an instance***
+instances\test_44.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.01
+Sum of costs:    33
+Expanded open nodes:  6
+Generated open nodes: 17
+Expanded focal nodes:  7
+Generated focal nodes: 14
+Total expanded nodes:  13
+Total generated nodes:  31
+Number of Agents: 6
+
+***Import an instance***
+instances\test_45.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.01
+Sum of costs:    24
+Expanded open nodes:  1
+Generated open nodes: 3
+Expanded focal nodes:  2
+Generated focal nodes: 2
+Total expanded nodes:  3
+Total generated nodes:  5
+Number of Agents: 6
+
+***Import an instance***
+instances\test_46.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.10
+Sum of costs:    57
+Expanded open nodes:  40
+Generated open nodes: 121
+Expanded focal nodes:  41
+Generated focal nodes: 86
+Total expanded nodes:  81
+Total generated nodes:  207
+Number of Agents: 7
+
+***Import an instance***
+instances\test_48.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.01
+Sum of costs:    36
+Expanded open nodes:  3
+Generated open nodes: 10
+Expanded focal nodes:  4
+Generated focal nodes: 5
+Total expanded nodes:  7
+Total generated nodes:  15
+Number of Agents: 7
+
+***Import an instance***
+instances\test_49.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.01
+Sum of costs:    42
+Expanded open nodes:  5
+Generated open nodes: 14
+Expanded focal nodes:  6
+Generated focal nodes: 10
+Total expanded nodes:  11
+Total generated nodes:  24
+Number of Agents: 7
+
+***Import an instance***
+instances\test_5.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.01
+Sum of costs:    26
+Expanded open nodes:  3
+Generated open nodes: 10
+Expanded focal nodes:  4
+Generated focal nodes: 7
+Total expanded nodes:  7
+Total generated nodes:  17
+Number of Agents: 5
+
+***Import an instance***
+instances\test_50.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.26
+Sum of costs:    48
+Expanded open nodes:  32
+Generated open nodes: 96
+Expanded focal nodes:  33
+Generated focal nodes: 50
+Total expanded nodes:  65
+Total generated nodes:  146
+Number of Agents: 7
+
+***Import an instance***
+instances\test_6.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.01
+Sum of costs:    24
+Expanded open nodes:  3
+Generated open nodes: 10
+Expanded focal nodes:  4
+Generated focal nodes: 8
+Total expanded nodes:  7
+Total generated nodes:  18
+Number of Agents: 6
+
+***Import an instance***
+instances\test_7.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.01
+Sum of costs:    34
+Expanded open nodes:  1
+Generated open nodes: 4
+Expanded focal nodes:  2
+Generated focal nodes: 3
+Total expanded nodes:  3
+Total generated nodes:  7
+Number of Agents: 6
+
+***Import an instance***
+instances\test_8.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.49
+Sum of costs:    38
+Expanded open nodes:  194
+Generated open nodes: 583
+Expanded focal nodes:  195
+Generated focal nodes: 422
+Total expanded nodes:  389
+Total generated nodes:  1005
+Number of Agents: 6
+
+***Import an instance***
+instances\test_9.txt
+***Run CBS***
+
+ Found a solution!
+
+CPU time (s):    0.00
+Sum of costs:    24
+Expanded open nodes:  0
+Generated open nodes: 1
+Expanded focal nodes:  1
+Generated focal nodes: 1
+Total expanded nodes:  1
+Total generated nodes:  2
+Number of Agents: 6
